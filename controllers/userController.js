@@ -31,7 +31,7 @@ const createUser = async (req, res) => {
     }
 };
 
-const login = async (req, res) => {
+const login = async(req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
@@ -53,7 +53,7 @@ const login = async (req, res) => {
             });
         }
 
-        const payload = { userId: userDB.userId };
+        const payload = { userName: userDB.userName };
         const token = await jwt.sign(payload, process.env.JWT_SECRET_KEY, {
             expiresIn: "1h"
         });
@@ -64,7 +64,7 @@ const login = async (req, res) => {
         });
 
     } catch (err) {
-        console.log(err);
+        console.log('Erro in login',err);
         res.status(500).json(err);
     }
 }

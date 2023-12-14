@@ -10,8 +10,6 @@ const bodyParser = require('body-parser');
 userApp.use(bodyParser.json());
 userApp.use(bodyParser.urlencoded({extended:true}));
 
-// const userController = require ('../controllers/userController')
-// userRoutes.route('/createuser').post( userController.createUser);
 
 const detailsController = require ('../controllers/detailsController')
 detailsRoutes.route('/createdetails').post(tokenCheck, detailsController.createDetails);

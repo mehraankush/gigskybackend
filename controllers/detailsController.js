@@ -7,7 +7,6 @@ const createDetails = async (req, res) => {
         senderName: req.body.senderName,
         UPI_number:req.body.UPI_number,
         UPI_ID: req.body.UPI_ID
-        
       });
   
       const savedPost = await newDetail.save();
