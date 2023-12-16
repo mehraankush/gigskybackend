@@ -8,10 +8,9 @@ const createUser = async (req, res) => {
         const isEmail = await User.findOne({ email: req.body.email });
         if (isEmail) {
             return res.status(400).send({
-                success: false,
+                success: true,
                 message: "Email is Already Registered please login",
             });
-    
         }
 
         const hashedPassword = await bcrypt.hashPassword(req.body.password);
@@ -22,11 +21,11 @@ const createUser = async (req, res) => {
         });
         await newUser.save();
         res.status(200).json({
-            message : `${req.body.userName} is Resigtered successfully`
-
+            success:true,
+            message : `account created successfully login!`
         });
     } catch (err) {
-        console.log("err",err);
+        console.log("Error in signup",err);
         res.status(500).json(err);
     }
 };

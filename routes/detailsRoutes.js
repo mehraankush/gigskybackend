@@ -12,7 +12,9 @@ userApp.use(bodyParser.urlencoded({extended:true}));
 
 
 const detailsController = require ('../controllers/detailsController')
-detailsRoutes.route('/createdetails').post(tokenCheck, detailsController.createDetails);
+detailsRoutes.route('/createdetails').post(tokenCheck, detailsController.createTransaction);
 detailsRoutes.route('/checkdetails/:UPI_ID').get(detailsController.checkDetails);
+detailsRoutes.route('/report').post(detailsController.ReportUpi);
+
 
 module.exports = detailsRoutes;

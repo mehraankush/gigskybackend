@@ -10,12 +10,13 @@ const DetailSchema = new mongoose.Schema(
         UPI_number: {
             type: String,
             required: true,
+            unique:true,
 
         },
         UPI_ID:{
             type: String,
             required: true,
-
+            unique:true,
         }
 
     },
